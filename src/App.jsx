@@ -31,19 +31,19 @@ export default function App() {
               poster="/assets/poster.jpg"
             />
           </div>
-          <p style={{marginTop: 8, opacity: 0.8}}>Our presentation of the prototype<code>public/assets/trailer.mp4</code>.</p>
+          <p style={{marginTop: 8, opacity: 0.8}}>Our presentation of the prototype<code> public/assets/trailer.mp4</code>.</p>
         </section>
 
         <section id="play" style={{ marginTop: 28 }}>
-          <h2 style={styles.h2}>Игровое окно</h2>
-          <p style={{marginTop: 0}}>unity should be here<code>public/game/</code> with enter point <code>index.html</code>.</p>
+          <h2 style={styles.h2}>Playground</h2>
+          <p style={{marginTop: 0}}>unity should be here<code>public/game/</code> with enter point <code> index.html</code>.</p>
           <div style={{ ...styles.iframeWrap, ...(isFullscreen ? styles.fullscreen : null) }}>
             <iframe
-              src="/game/index.html"
-              title="Unity WebGL Game"
-              loading="lazy"
-              allow="fullscreen"
-              style={styles.iframe}
+                src="/game/index.html"
+                title="Unity WebGL Game"
+                loading="lazy"
+                allow="fullscreen"
+                style={styles.iframe}
             />
           </div>
           <div style={{ marginTop: 12, display: 'flex', gap: 12 }}>
