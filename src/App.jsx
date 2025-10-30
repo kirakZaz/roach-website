@@ -62,22 +62,8 @@ export default function App() {
 }
 
 const styles = {
-    page: {
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        background: '#000',
-    },
-    container: {
-        flex: 1,
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 0,
-        margin: 0,
-    },
+    page: { minHeight: '100vh', display: 'flex', flexDirection: 'column' },
+    container: { maxWidth: 1200, margin: '0 auto', padding: 16 },
     header: { background: '#111', color: '#fff' },
     footer: { borderTop: '1px solid #eee', marginTop: 40 },
     title: { margin: 0, fontSize: 32, fontWeight: 700 },
