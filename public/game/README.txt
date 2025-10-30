@@ -1,1 +1,1 @@
-Скопируйте сюда файлы сборки Unity WebGL: index.html и папку Build/
+Unity WebGL: index.html
