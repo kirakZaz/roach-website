@@ -1,1 +1,0 @@
-Unity WebGL: index.html

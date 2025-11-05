@@ -75,7 +75,7 @@ const styles = {
     iframeWrap: {
         position: 'relative',
         width: '100%',
-        height: 'calc(100vh - 80px)', // можно подстроить отступ под хедер, если есть
+        height: 'calc(100vh - 80px)',
         border: 'none',
         overflow: 'hidden',
         background: '#000',
