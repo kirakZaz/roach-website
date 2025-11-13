@@ -1,6 +1,5 @@
 import React from 'react';
-import {styles} from './mainPageStyles';
-
+import { styles } from './mainPageStyles';
 
 const MainPage = () => {
     const [isFullscreen, setIsFullscreen] = React.useState(false);
