@@ -25,8 +25,16 @@ const Info = ({ accent, activeMember }) => {
 
                 <Box mt={2} sx={{ opacity: 0.85 }}>
                     <Typography variant="body1">
-                        Click any portrait to feature them here. This section can include a short bio, responsibilities,
-                        or links (portfolio, GitHub, ArtStation) as you gather assets.
+                        {typeof activeMember.description === 'string'
+                            ? activeMember.description
+                            : activeMember.description.map((desc) => {
+                                  return (
+                                      <span key={activeMember.id + desc}>
+                                          {desc}
+                                          <br />
+                                      </span>
+                                  );
+                              })}
                     </Typography>
                 </Box>
 

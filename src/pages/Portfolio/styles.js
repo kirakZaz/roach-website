@@ -11,6 +11,14 @@ export const styles = {
         transition: 'transform .2s ease, box-shadow .2s ease, filter .2s ease',
         transform: isActive ? 'translateY(-2px)' : 'none',
         filter: isActive ? 'none' : 'grayscale(20%)',
+
+        display: 'flex',
+        maxWidth: '265px',
+        minHeight: isActive ? '250px' : '150px',
+        flexDirection: 'column',
+        alignItems: 'center',
+        padding: isActive ? '34px' : '0',
+
         '&::before': {
             content: '""',
             position: 'absolute',
@@ -24,6 +32,12 @@ export const styles = {
         },
         '&:hover': { boxShadow: '0 18px 36px rgba(0,0,0,0.45)' },
     }),
+    activeText: ({ isActive }) => ({
+        display: isActive ? 'block' : 'none',
+        '& > p': {
+            my: 1,
+        },
+    }),
     membersRow: {
         width: '100%',
         display: 'flex',
@@ -35,4 +49,10 @@ export const styles = {
         flex: '1 1 auto',
         mx: 1,
     },
+};
+
+export const accent = {
+    main: '#f06b8d',
+    darkBg: '#23222b',
+    soft: '#ffd8e2',
 };
