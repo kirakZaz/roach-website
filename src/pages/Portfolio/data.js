@@ -11,8 +11,12 @@ export const TEAM = [
     {
         id: 'alexander',
         name: 'Alexander Ramic',
-        role: 'Environment & Sound',
-        description: 'description',
+        role: 'Environmental Asset Artist, Animator, Music & SFX Engineer',
+        description: [
+            'Hello, my name is Alexander and I am primarily the artist of the environmental assets for Roach. I made the various pieces of pipes, irradiated rocks, and barrels as well as more to give Roach that toxic post apocalypse feel.',
+            'I also handled the music and sound effects as well as animating my assets and organizing the team in its early stages alongside my two fellow founding members Jamie and Kira before the team welcomed our much needed additional members Lewis and Erica.',
+            'Lifelong gamer, an artist with big ambitions, surrealism is my favourite movement of art. Truly grateful to have an amazing team in EchoForge',
+        ],
         img: '/assets/team/demo-m.png',
         degree: 'Bachelor of Game Design & Development',
     },
