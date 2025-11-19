@@ -10,7 +10,7 @@ import { TEAM } from '@/pages/Portfolio/data.js';
 import { accent, styles } from './styles';
 
 const PortfolioPage = () => {
-    const [activeId, setActiveId] = React.useState('kira');
+    const [activeId, setActiveId] = React.useState('jamison');
 
     // // Keep the active member first so it gets the larger grid area
     const members = React.useMemo(() => {
