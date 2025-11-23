@@ -2,6 +2,7 @@ import React from 'react';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfied';
 import {
     Accordion,
     AccordionDetails,
@@ -61,10 +62,13 @@ const GamePage = () => {
                             <Typography variant="body1">
                                 Roach is a survival-action platformer where players control an anthropomorphic cockroach
                                 fighting mutated creatures, gathering scarce resources, and surviving toxic hazards with
-                                help from a loyal pet named Wichetty. Developed in Unity by team EchoForge, the game
-                                emphasizes wall-climbing mobility, resource management, and post-apocalyptic exploration
-                                through irradiated cave environments. This prototype represents the team’s first major
-                                milestone in delivering the game’s core mechanics and world design.
+                                help from a loyal pet named Wichetty.
+                            </Typography>
+                            <Typography variant="body1" sx={{ mt: 2 }}>
+                                Developed in Unity by team EchoForge, the game emphasizes wall-climbing mobility,
+                                resource management, and post-apocalyptic exploration through irradiated cave
+                                environments. This prototype represents the team’s first major milestone in delivering
+                                the game’s core mechanics and world design.{' '}
                             </Typography>
                         </AccordionDetails>
                     </Accordion>
@@ -92,22 +96,49 @@ const GamePage = () => {
                             }}
                         />
 
-                        <CardContent sx={{ textAlign: 'center', background: theme.palette.background.paper }}>
-                            <Typography variant="body2" sx={{ mb: 2, opacity: 0.8 }}>
-                                Play directly above, or open the full game window below.
-                            </Typography>
+                        <CardContent
+                            sx={{
+                                display: 'flex',
+                                gap: 6,
+                                alignItems: 'center',
+                                textAlign: 'center',
+                                justifyContent: 'center',
+                                background: theme.palette.background.paper,
+                            }}
+                        >
+                            <Box>
+                                <Typography variant="body2" sx={{ mb: 2, opacity: 0.8 }}>
+                                    Play directly above, or open the full game window below.
+                                </Typography>
 
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                size="large"
-                                endIcon={<OpenInNewIcon />}
-                                href="https://roach-unity.vercel.app/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Open Full Game
-                            </Button>
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    size="large"
+                                    endIcon={<OpenInNewIcon />}
+                                    href="https://roach-unity.vercel.app/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Open Full Game
+                                </Button>
+                            </Box>
+                            <Box>
+                                <Typography variant="body2" sx={{ mb: 2, opacity: 0.8 }}>
+                                    Fill EchoForge Roach Playtest Survey
+                                </Typography>
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    size="large"
+                                    endIcon={<SentimentVerySatisfiedIcon />}
+                                    href="https://forms.gle/V1j6VPHRPUsvB7wA6"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Survey
+                                </Button>
+                            </Box>
                         </CardContent>
                     </Card>
                 </Stack>
