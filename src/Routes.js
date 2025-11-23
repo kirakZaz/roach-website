@@ -2,6 +2,7 @@ import { useRoutes } from 'react-router-dom';
 
 import GamePage from '@/pages/Game/Game.jsx';
 import HomePage from '@/pages/Home/Home.jsx';
+import NotFound from '@/pages/NotFound/NotFound.jsx';
 import PortfolioPage from '@/pages/Portfolio/Portfolio.jsx';
 
 import { routes } from '@/shared/types.js';
@@ -18,6 +19,7 @@ const Routes = () => {
                 { path: routes.portfolio, element: <PortfolioPage /> },
             ],
         },
+        { path: '*', element: <NotFound /> },
     ]);
 };
 
