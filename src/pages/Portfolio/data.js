@@ -27,8 +27,12 @@ export const TEAM = [
         id: 'erica',
         name: 'Erica Neale',
         role: 'Character Art Lead',
-        description: '...',
-        img: '/assets/team/demo-w.png',
+        description: [
+            'Hi my name is Erica Neale and I am in charge of the main character Roachs design and animations.',
+            'After hours of research and many failed designs I was finally set on the final idea. I then animated crawling and idle animations for our game.',
+            'I come from a small town in the mid-north coast in NSW, I have been gaming for as long as I can remember and doing anything artistic longer, art is my passion and I hope to go somewhere big with it one day :)',
+        ],
+        img: '/assets/team/erica.jpeg',
         degree: 'Bachelor of Game Design & Development',
     },
     {
