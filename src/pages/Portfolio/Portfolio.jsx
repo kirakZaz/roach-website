@@ -31,8 +31,8 @@ const PortfolioPage = () => {
             }}
         >
             <Box sx={{ maxWidth: '1200px', margin: '0 auto', px: 2 }}>
-                a
                 <Head accent={accent} />
+
                 <Box sx={styles.membersRow}>
                     {TEAM.map((m) => (
                         <Box sx={styles.member} key={m.id}>
