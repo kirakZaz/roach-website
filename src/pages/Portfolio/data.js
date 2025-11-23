@@ -34,9 +34,14 @@ export const TEAM = [
     {
         id: 'lewis',
         name: 'Lewis Schneider',
-        role: 'Background & Map Design',
-        description: '...',
-        img: '/assets/team/demo-m.png',
+        role: 'Background Art/Level Design',
+        description: [
+            'Hello, my name is Lewis and I am responsible for the creation of background art and level design for Roach.',
+            ' After creating the level design I was then responsible for implementing this directly into Unity with the assistance of our Lead programmer and technical expert Kira. ',
+            'I am from a small town in central Queensland with very little to do so video games have been a consistent hobby and passion of mine throughout my upbringing. ',
+            'I am excited to share Roach with you all as we develop our game further.',
+        ],
+        img: '/assets/team/LewisSchneider.jpeg',
         degree: 'Bachelor of Game Design & Development',
     },
     {

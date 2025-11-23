@@ -9,9 +9,9 @@ const Layout = () => {
         <Box>
             <Header />
 
-            <div>
+            <Box sx={{ mt: 6 }}>
                 <Outlet />
-            </div>
+            </Box>
         </Box>
     );
 };

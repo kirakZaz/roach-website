@@ -34,7 +34,7 @@ const GamePage = () => {
                 py: 2,
             }}
         >
-            <Container maxWidth="lg">
+            <Container maxWidth="100%">
                 <Stack spacing={4} alignItems="center">
                     {/* Header */}
                     <Box textAlign="center">

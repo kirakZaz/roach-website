@@ -29,10 +29,10 @@ const Info = ({ accent, activeMember }) => {
                             ? activeMember.description
                             : activeMember.description.map((desc) => {
                                   return (
-                                      <span key={activeMember.id + desc}>
+                                      <Typography variant="body1" key={activeMember.id + desc} sx={{ mb: 1 }}>
                                           {desc}
                                           <br />
-                                      </span>
+                                      </Typography>
                                   );
                               })}
                     </Typography>

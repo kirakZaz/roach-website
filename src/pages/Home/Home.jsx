@@ -76,7 +76,7 @@ const HomePage = () => {
                 minHeight: '100dvh',
                 bgcolor: theme.palette.background.default,
                 color: theme.palette.text.primary,
-                py: 4,
+                py: 2,
             }}
         >
             <Container maxWidth="lg">

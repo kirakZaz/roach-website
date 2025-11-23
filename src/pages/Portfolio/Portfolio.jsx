@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, Container } from '@mui/material';
+import { Box } from '@mui/material';
 
 import AccentFrame from '@/pages/Portfolio/components/AccentFrame.jsx';
 import Head from '@/pages/Portfolio/components/Head.jsx';
@@ -30,9 +30,9 @@ const PortfolioPage = () => {
                 py: 2,
             }}
         >
-            <Container maxWidth="lg">
+            <Box sx={{ maxWidth: '1200px', margin: '0 auto', px: 2 }}>
+                a
                 <Head accent={accent} />
-
                 <Box sx={styles.membersRow}>
                     {TEAM.map((m) => (
                         <Box sx={styles.member} key={m.id}>
@@ -47,9 +47,8 @@ const PortfolioPage = () => {
                         </Box>
                     ))}
                 </Box>
-
                 <Info accent={accent} activeMember={activeMember} />
-            </Container>
+            </Box>
         </Box>
     );
 };
