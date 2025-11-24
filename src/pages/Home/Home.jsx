@@ -80,7 +80,7 @@ const HomePage = () => {
             }}
         >
             <Container maxWidth="lg">
-                <Stack spacing={4}>
+                <Stack spacing={2}>
                     <Box textAlign="center">
                         <Typography variant="h2" sx={{ fontWeight: 700, mb: 1, lineHeight: 1.2 }}>
                             Welcome to <span style={{ whiteSpace: 'nowrap' }}>GPF104 (N05765)</span>
@@ -107,8 +107,8 @@ const HomePage = () => {
                                 '& .MuiTab-root': { fontWeight: 600, textTransform: 'none' },
                             }}
                         >
-                            <Tab label="Assessment 1 — Meet Roach Prototype" />
-                            <Tab label="Assessment 2 — Level Gameplay" />
+                            <Tab label="Assessment 2 — Meet Roach Prototype" />
+                            <Tab label="Assessment 3 — Roach MVP" />
                         </Tabs>
 
                         {tabIndex === 0 && (
@@ -125,8 +125,8 @@ const HomePage = () => {
                             <Box>
                                 <VideoBlock
                                     title="Roach — Gameplay"
-                                    src="/assets/trailer.mp4"
-                                    poster="/assets/poster-trailer.png"
+                                    src="/assets/a2_presentation.mp4"
+                                    poster="/assets/a2-poster.png"
                                 />
                             </Box>
                         )}
