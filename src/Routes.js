@@ -1,5 +1,6 @@
 import { useRoutes } from 'react-router-dom';
 
+import AboutPage from '@/pages/About/About.jsx';
 import GamePage from '@/pages/Game/Game.jsx';
 import HomePage from '@/pages/Home/Home.jsx';
 import NotFound from '@/pages/NotFound/NotFound.jsx';
@@ -15,6 +16,7 @@ const Routes = () => {
             element: <Layout />,
             children: [
                 { path: routes.home, element: <HomePage /> },
+                { path: routes.assessment, element: <AboutPage /> },
                 { path: routes.game, element: <GamePage /> },
                 { path: routes.portfolio, element: <PortfolioPage /> },
             ],

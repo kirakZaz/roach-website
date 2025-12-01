@@ -12,6 +12,8 @@ const HeaderNavigation = () => {
     const navigate = useNavigate();
     const [selectedButton, setSelectedButton] = React.useState('home');
 
+    console.log('routes nav', routes);
+
     React.useLayoutEffect(() => {
         const path = window.location.pathname;
 

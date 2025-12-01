@@ -1,140 +1,188 @@
-import React from 'react';
+import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import PauseRoundedIcon from '@mui/icons-material/PauseRounded';
-import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
-import {
-    Box,
-    Card,
-    CardContent,
-    CardMedia,
-    Container,
-    Divider,
-    IconButton,
-    Stack,
-    Tab,
-    Tabs,
-    Typography,
-    useTheme,
-} from '@mui/material';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { Box, Container, IconButton, Typography } from '@mui/material';
 
-const VideoBlock = ({ title, src, poster }) => {
-    const videoRef = React.useRef(null);
-    const [isPlaying, setIsPlaying] = React.useState(false);
+import { routes } from '@/shared/types';
 
-    const handleTogglePlay = () => {
-        const video = videoRef.current;
-        if (!video) return;
-        if (video.paused) {
-            video.play();
-            setIsPlaying(true);
+import roachBanner from '@/assets/aboutPage/roach-banner.png';
+
+// Components
+import Mechanics from './components/Mechanics';
+import Overview from './components/Overview';
+import WhereToPlay from './components/WhereToPlay';
+import { conceptArtPlaceholders, creatures, features, getPipePattern, pipes, screenshotPlaceholders } from './data';
+import { styles } from './homeStyles';
+
+// Assets
+
+function HomePage() {
+    const navigate = useNavigate();
+    const carouselRef = useRef(null);
+
+    const handleNavigate = (key) => {
+        console.log('routes home', key);
+
+        if (routes && routes[key]) {
+            navigate(routes[key]);
         } else {
-            video.pause();
-            setIsPlaying(false);
+            navigate(`/${key}`);
         }
     };
 
-    const handleOnEnd = () => setIsPlaying(false);
+    const scrollCarousel = (direction) => {
+        if (carouselRef.current) {
+            carouselRef.current.scrollLeft += direction * 300;
+        }
+    };
 
-    return (
-        <Card variant="outlined" sx={{ overflow: 'hidden' }}>
-            <CardContent sx={{ pb: 0 }}>
-                <Stack direction="row" alignItems="center" justifyContent="space-between" gap={2}>
-                    <Typography variant="h6" sx={{ fontWeight: 600 }}>
-                        {title}
-                    </Typography>
-                    <IconButton aria-label={isPlaying ? 'Pause video' : 'Play video'} onClick={handleTogglePlay}>
-                        {isPlaying ? <PauseRoundedIcon /> : <PlayArrowRoundedIcon />}
-                    </IconButton>
-                </Stack>
-            </CardContent>
-            <CardMedia sx={{ aspectRatio: '16 / 9', display: 'grid', placeItems: 'center' }}>
-                <video
-                    ref={videoRef}
-                    src={src}
-                    poster={poster}
-                    controls
-                    playsInline
-                    onEnded={handleOnEnd}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
-            </CardMedia>
-        </Card>
-    );
-};
-
-const HomePage = () => {
-    const theme = useTheme();
-    const [tabIndex, setTabIndex] = React.useState(0);
-
-    const handleChange = (_event, newValue) => {
-        setTabIndex(newValue);
+    const renderPipeDivider = (variant) => {
+        const pattern = getPipePattern(variant);
+        return (
+            <Box sx={styles.pipeDivider}>
+                {pattern.map((pipeIndex, i) => (
+                    <Box key={i} component="img" src={pipes[pipeIndex]} alt="" sx={styles.pipeImage} />
+                ))}
+            </Box>
+        );
     };
 
     return (
-        <Box
-            sx={{
-                minHeight: '100dvh',
-                bgcolor: theme.palette.background.default,
-                color: theme.palette.text.primary,
-                py: 2,
-            }}
-        >
-            <Container maxWidth="lg">
-                <Stack spacing={2}>
-                    <Box textAlign="center">
-                        <Typography variant="h2" sx={{ fontWeight: 700, mb: 1, lineHeight: 1.2 }}>
-                            Welcome to <span style={{ whiteSpace: 'nowrap' }}>GPF104 (N05765)</span>
-                        </Typography>
+        <Box sx={styles.pageWrapper}>
+            <Box sx={styles.contentWrapper}>
+                {/* Banner */}
+                <Box sx={styles.bannerSection}>
+                    <Box component="img" src={roachBanner} alt="ROACH" sx={styles.bannerImage} />
+                </Box>
 
-                        <Typography variant="h5" sx={{ opacity: 0.9 }}>
-                            Game Production Foundation — our game <strong>“Roach”</strong> by team{' '}
-                            <strong>ECHOFORGE</strong>
-                        </Typography>
+                <Container maxWidth="xl">
+                    {/* Tagline */}
+                    <Typography sx={styles.tagLine}>GET READY TO ROACH.</Typography>
+
+                    {/* Game Overview */}
+                    <Overview handleNavigate={handleNavigate} />
+
+                    {/* Mechanics */}
+                    <Mechanics creatures={creatures} features={features} renderPipeDivider={renderPipeDivider} />
+
+                    {renderPipeDivider(1)}
+
+                    {/* Closing Statement */}
+                    <Typography sx={styles.closingStatement}>
+                        You and your kind are the inheritors of what is left of the Earth.
+                        <br />
+                        You. Are. Roach.
+                    </Typography>
+
+                    {/* Screenshots Carousel */}
+                    <Box sx={styles.section}>
+                        <Typography sx={styles.sectionTitle}>GAMEPLAY SCREENSHOTS</Typography>
+                        <Box sx={styles.carouselContainer}>
+                            <IconButton sx={styles.carouselButton} onClick={() => scrollCarousel(-1)}>
+                                <ChevronLeftIcon />
+                            </IconButton>
+                            <Box sx={styles.carouselTrack} ref={carouselRef}>
+                                {screenshotPlaceholders.map((placeholder, index) => (
+                                    <Box key={index} sx={styles.carouselItem}>
+                                        {/*<Box sx={styles.carouselItemBar} />*/}
+                                        <img
+                                            src={placeholder}
+                                            alt={`screenshot-${index}`}
+                                            style={styles.carouselImage}
+                                        />
+                                    </Box>
+                                ))}
+                            </Box>
+                            <IconButton sx={styles.carouselButton} onClick={() => scrollCarousel(1)}>
+                                <ChevronRightIcon />
+                            </IconButton>
+                        </Box>
                     </Box>
 
-                    <Divider />
+                    {renderPipeDivider(0)}
 
-                    {/* Tabs */}
-                    <Box sx={{ width: '100%' }}>
-                        <Tabs
-                            value={tabIndex}
-                            onChange={handleChange}
-                            centered
-                            textColor="primary"
-                            indicatorColor="primary"
-                            sx={{
-                                mb: 3,
-                                '& .MuiTab-root': { fontWeight: 600, textTransform: 'none' },
-                            }}
-                        >
-                            <Tab label="Assessment 2 — Meet Roach Prototype" />
-                            <Tab label="Assessment 3 — Roach MVP" />
-                        </Tabs>
+                    {/* Where to Play */}
+                    <WhereToPlay handleNavigate={handleNavigate} />
 
-                        {tabIndex === 0 && (
-                            <Box>
-                                <VideoBlock
-                                    title="Roach — Trailer"
-                                    src="/assets/trailer.mp4"
-                                    poster="/assets/poster-trailer.png"
-                                />
-                            </Box>
-                        )}
+                    {/* Concept Art */}
+                    <Box sx={styles.section}>
+                        <Typography sx={styles.sectionTitle}>CONCEPT ART / PROGRESS</Typography>
 
-                        {tabIndex === 1 && (
-                            <Box>
-                                <VideoBlock
-                                    title="Roach — Gameplay"
-                                    src="/assets/a2_presentation.mp4"
-                                    poster="/assets/a2-poster.png"
-                                />
-                            </Box>
-                        )}
+                        <Box sx={styles.artGrid}>
+                            {conceptArtPlaceholders.map((placeholder, index) => (
+                                <Box key={index} sx={styles.artItem}>
+                                    <img src={placeholder} alt={`concept-art-${index}`} style={styles.artImage} />
+                                </Box>
+                            ))}
+                        </Box>
                     </Box>
-                </Stack>
-            </Container>
+
+                    {renderPipeDivider(2)}
+
+                    {/* Meet the Team */}
+                    <Box sx={styles.section}>
+                        <Typography sx={styles.sectionTitle}>MEET THE TEAM</Typography>
+                        <Box sx={styles.infoCard}>
+                            <Typography sx={{ ...styles.gameDescription, textAlign: 'center', marginBottom: '32px' }}>
+                                The passionate developers behind Roach
+                            </Typography>
+                            <Box sx={{ textAlign: 'center', marginTop: '32px' }}>
+                                <Box sx={styles.secondaryButton} onClick={() => handleNavigate('portfolio')}>
+                                    VIEW FULL TEAM PORTFOLIO
+                                </Box>
+                            </Box>
+                        </Box>
+                    </Box>
+
+                    {/* Contact Us */}
+                    <Box sx={styles.twoColumnLayout}>
+                        <Box sx={{ ...styles.columnImage, flexDirection: 'column', alignItems: 'flex-start' }}>
+                            <Typography sx={styles.sectionTitle}>CONTACT US</Typography>
+                            <Box sx={{ maxWidth: '600px' }}>
+                                <Box sx={styles.infoCard}>
+                                    <Typography sx={styles.gameDescription}>
+                                        Please feel free to provide feedback on our game via the link in the Game
+                                        section or reach out to us via our social media or company email below.
+                                    </Typography>
+                                    <Box sx={styles.contactSection}>
+                                        <Box sx={styles.contactItem}>
+                                            <Typography sx={styles.contactLabel}>Instagram</Typography>
+                                            <Box component="a" href="#" sx={styles.contactValue}>
+                                                @RoachGame
+                                            </Box>
+                                        </Box>
+                                        <Box sx={styles.contactItem}>
+                                            <Typography sx={styles.contactLabel}>Email</Typography>
+                                            <Box
+                                                component="a"
+                                                href="mailto:contact@roachgame.com"
+                                                sx={styles.contactValue}
+                                            >
+                                                contact@roachgame.com
+                                            </Box>
+                                        </Box>
+                                    </Box>
+                                </Box>
+                            </Box>
+                        </Box>
+
+                        <Box sx={styles.columnContent}>
+                            <WhereToPlay handleNavigate={handleNavigate} />
+                        </Box>
+                    </Box>
+
+                    {renderPipeDivider(0)}
+
+                    {/* Footer */}
+                    <Box sx={styles.footer}>
+                        <Typography sx={styles.footerText}>© 2025 Roach Game. All rights reserved.</Typography>
+                    </Box>
+                </Container>
+            </Box>
         </Box>
     );
-};
+}
 
 export default HomePage;

@@ -7,6 +7,11 @@ export const buttons = [
         route: routes.home,
     },
     {
+        key: 'assessment',
+        label: 'Assessments',
+        route: routes.assessment,
+    },
+    {
         key: 'game',
         label: 'Game',
         route: routes.game,
