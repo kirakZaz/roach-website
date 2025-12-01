@@ -1,6 +1,8 @@
 import { Box, Typography } from '@mui/material';
 
 // Update this import path as needed
+import { routes } from '@/shared/types';
+
 import mainImage from '@/assets/aboutPage/adknbl.jpg';
 
 import { styles } from '../homeStyles.js';
@@ -31,10 +33,10 @@ const Overview = ({ handleNavigate }) => {
                             tomorrow.
                         </Typography>
                         <Box sx={styles.buttonGroup}>
-                            <Box sx={styles.actionButton} onClick={() => handleNavigate('game')}>
+                            <Box sx={styles.actionButton} onClick={() => handleNavigate(routes.game)}>
                                 PLAY NOW
                             </Box>
-                            <Box sx={styles.actionButton} onClick={() => handleNavigate('home')}>
+                            <Box sx={styles.actionButton} onClick={() => handleNavigate(routes.assessment)}>
                                 VIEW PRESENTATIONS
                             </Box>
                         </Box>

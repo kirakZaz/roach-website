@@ -1,5 +1,7 @@
 import { Box, Typography } from '@mui/material';
 
+import { routes } from '@/shared/types.js';
+
 import { styles } from '../homeStyles.js';
 
 const WhereToPlay = ({ handleNavigate }) => {
@@ -41,7 +43,7 @@ const WhereToPlay = ({ handleNavigate }) => {
                 </Box>
 
                 <Box sx={styles.buttonGroup}>
-                    <Box sx={styles.actionButton} onClick={() => handleNavigate('game')}>
+                    <Box sx={styles.actionButton} onClick={() => handleNavigate(routes.game)}>
                         PLAY THE GAME
                     </Box>
                 </Box>

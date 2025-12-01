@@ -23,13 +23,7 @@ function HomePage() {
     const carouselRef = useRef(null);
 
     const handleNavigate = (key) => {
-        console.log('routes home', key);
-
-        if (routes && routes[key]) {
-            navigate(routes[key]);
-        } else {
-            navigate(`/${key}`);
-        }
+        navigate(key);
     };
 
     const scrollCarousel = (direction) => {
@@ -129,7 +123,7 @@ function HomePage() {
                                 The passionate developers behind Roach
                             </Typography>
                             <Box sx={{ textAlign: 'center', marginTop: '32px' }}>
-                                <Box sx={styles.secondaryButton} onClick={() => handleNavigate('portfolio')}>
+                                <Box sx={styles.secondaryButton} onClick={() => handleNavigate(routes.portfolio)}>
                                     VIEW FULL TEAM PORTFOLIO
                                 </Box>
                             </Box>
