@@ -119,8 +119,9 @@ function HomePage() {
                             <Typography sx={{ ...styles.gameDescription, textAlign: 'center', marginBottom: '32px' }}>
                                 The passionate developers behind Roach
                             </Typography>
-                            <Box sx={{ textAlign: 'center', marginTop: '32px' }}>
-                                <Box sx={styles.secondaryButton} onClick={() => handleNavigate(routes.portfolio)}>
+
+                            <Box sx={{ ...styles.buttonGroup, justifyContent: 'center' }}>
+                                <Box sx={styles.actionButton} onClick={() => handleNavigate(routes.portfolio)}>
                                     VIEW FULL TEAM PORTFOLIO
                                 </Box>
                             </Box>
@@ -140,8 +141,12 @@ function HomePage() {
                                     <Box sx={styles.contactSection}>
                                         <Box sx={styles.contactItem}>
                                             <Typography sx={styles.contactLabel}>Instagram</Typography>
-                                            <Box component="a" href="#" sx={styles.contactValue}>
-                                                @RoachGame
+                                            <Box
+                                                component="a"
+                                                href="https://www.instagram.com/echoforge.roach/ "
+                                                sx={styles.contactValue}
+                                            >
+                                                @echoforge.roach
                                             </Box>
                                         </Box>
                                         <Box sx={styles.contactItem}>
