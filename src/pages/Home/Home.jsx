@@ -97,9 +97,6 @@ function HomePage() {
 
                     {renderPipeDivider(0)}
 
-                    {/* Where to Play */}
-                    <WhereToPlay handleNavigate={handleNavigate} />
-
                     {/* Concept Art */}
                     <Box sx={styles.section}>
                         <Typography sx={styles.sectionTitle}>CONCEPT ART / PROGRESS</Typography>
